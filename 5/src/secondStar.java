@@ -4,9 +4,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-public class firstStar {
+public class secondStar {
     public static void main(String[] args) {
         ArrayList<Stack> stacks = new ArrayList<>();
+        Stack<Character> tempStack = new Stack<>();
 
         for(int i = 0; i < 9; i++) {
             stacks.add(new Stack<Character>());
@@ -46,7 +47,10 @@ public class firstStar {
                 sc.close();
                 System.out.println("MoveAmount " + moveAmount+" moveFrom: "+moveFrom + " Moveto: " + moveTo);
                 for(int i = 0; i < moveAmount; i++) {
-                    stacks.get(moveTo).add(stacks.get(moveFrom).pop());
+                    tempStack.add((char)stacks.get(moveFrom).pop());
+                }
+                for(int i = 0; i < moveAmount; i++) {
+                    stacks.get(moveTo).add(tempStack.pop());
                 }
             }
             System.out.println("Letters:\n");
